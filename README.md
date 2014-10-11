@@ -1,68 +1,29 @@
 openstack-sample Cookbook
 =========================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
-
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - openstack-sample needs toaster to brown your bagel.
+OpenStack サンプルクックブックです。Flask アプリケーションを3階層の VM にデプ
+ロイするためのクックブックです。
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
-
-e.g.
-#### openstack-sample::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['openstack-sample']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+Tomokazu HIRAI (@jedipunkz)
 
 Usage
 -----
-#### openstack-sample::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `openstack-sample` in your node's `run_list`:
+#### db サーバデプロイ
 
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[openstack-sample]"
-  ]
-}
-```
+    $ knife bootstrap -N dbs01 192.168.0.4 -r 'role[db]' -x root  -i key-for-internal.pem
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+#### Web サーバデプロイ
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+    $ knife bootstrap -N web01 192.168.0.1 -r 'role[web]' -x root  -i key-for-internal.pem
+
+#### App サーバデプロイ
+
+    $ knife bootstrap -N web01 192.168.0.3 -r 'role[rest]' -x root  -i key-for-internal.pem
+
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+
+Apache License

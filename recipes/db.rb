@@ -14,7 +14,6 @@ include_recipe "database::mysql"
 mysql_connection_info = {
   :host     => node['mysql']['host'],
   :username => 'root',
-  # :password => 'password'
   :password => node['mysql']['server_root_password']
 }
 

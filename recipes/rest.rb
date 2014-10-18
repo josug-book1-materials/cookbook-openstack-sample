@@ -9,36 +9,11 @@
 include_recipe "python::pip"
 include_recipe "python::virtualenv"
 
-# python_virtualenv "/home/vagrant/apps" do
-#   action :create
-#   owner "vagrant"
-#   group "vagrant"
-# end
 %w{ gcc python-devel python-crypto mysql-devel}.each do |p|
   package p do
     action:install
   end
 end
-
-# python_pip "Flask" do
-#   action :install
-# end
-#
-# python_pip "Flask-SQLAlchemy" do
-#   action :install
-# end
-#
-# python_pip "Flask-WTF" do
-#   action :install
-# end
-#
-# python_pip "MySQL-python" do
-#   action :install
-# end
-#
-# python_pip "httplib2" do
-#   action :install
-# end
 
 %w{ Flask Flask-SQLAlchemy Flask-WTF MySQL-python httplib2 }.each do |pip|
   python_pip pip do
@@ -51,6 +26,14 @@ end
     path "/root/#{f}"
     action :create_if_missing
   end
+end
+
+template "/root/endpoint.conf" do
+  source "endpoint.conf.erb"
+  mode 0644
+  owner "root"
+  group "root"
+  action :create
 end
 
 cookbook_file "rest.init.sh" do

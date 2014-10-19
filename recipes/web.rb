@@ -15,6 +15,10 @@ include_recipe "python::virtualenv"
   end
 end
 
+python_pip "setuptools" do
+  action :upgrade
+end
+
 %w{ Flask Flask-SQLAlchemy Flask-WTF MySQL-python httplib2 }.each do |pip|
   python_pip pip do
     action :install

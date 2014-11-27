@@ -62,3 +62,6 @@ end
 service "web.init.sh" do
   action :start
 end
+
+meta_ipaddr = `curl -s http://169.254.169.254/latest/meta-data/local-ipv4 | awk -F ',' '{print $1}' | tr -d '\n'`
+node.set["ipaddr"] = meta_ipaddr

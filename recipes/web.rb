@@ -7,7 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 include_recipe "python::pip"
-include_recipe "python::virtualenv"
 
 %w{ gcc python-devel python-crypto mysql-devel}.each do |p|
   package p do
@@ -63,5 +62,3 @@ service "web.init.sh" do
   action :start
 end
 
-meta_ipaddr = `curl -s http://169.254.169.254/latest/meta-data/local-ipv4 | awk -F ',' '{print $1}' | tr -d '\n'`
-node.set["ipaddr"] = meta_ipaddr

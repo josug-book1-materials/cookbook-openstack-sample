@@ -7,7 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 include_recipe "python::pip"
-include_recipe "python::virtualenv"
 
 %w{ gcc python-devel python-crypto mysql-devel}.each do |p|
   package p do

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: openstack-sample
+# Cookbook Name:: sample-app
 # Recipe:: default
 #
 # Copyright 2014, YOUR_COMPANY_NAME

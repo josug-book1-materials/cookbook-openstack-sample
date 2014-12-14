@@ -1,5 +1,5 @@
 upstream backend {
-<% node['sample-app']['web_host'].each do |ip_address| -%>
+<% node['sample-app']['web_hosts'].each do |ip_address| -%>
   server <%= ip_address -%>;
 <% end -%>
 }

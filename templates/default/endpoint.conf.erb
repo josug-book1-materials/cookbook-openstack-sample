@@ -1,7 +1,7 @@
 [rest-server]
-rest_host = <%= node['sample-app']['rest_host'] %>
+rest_host = <%= node['sample-app']['rest_hosts'][0] %>
 rest_endpoint = http://%(rest_host)s:5555/bbs
 
 [db-server]
-db_host = <%= node['sample-app']['db_host'] %>
+db_host = <%= node['sample-app']['db_hosts'][0] %>
 db_endpoint = mysql://user:password@%(db_host)s/sample_bbs?charset=utf8

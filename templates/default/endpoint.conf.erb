@@ -1,5 +1,5 @@
 [rest-server]
-rest_host = <%= node['sample-app']['rest_hosts'][0] %>
+rest_host = <%= node['sample-app']['app_hosts'][0] %>
 rest_endpoint = http://%(rest_host)s:5555/bbs
 
 [db-server]

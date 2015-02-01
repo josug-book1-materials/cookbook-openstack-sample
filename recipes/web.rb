@@ -14,6 +14,14 @@ include_recipe "python::pip"
   end
 end
 
+bash 'manually upgrade setuptools' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  easy_install --upgrade setuptools
+  EOH
+end
+
 python_pip "setuptools" do
   action :upgrade
 end
